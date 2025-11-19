@@ -7,7 +7,7 @@ import java.util.Map;
 public class java01 {
     public int[] Sum(int[] nums, int target){
         Map<Integer, Integer> d = new HashMap<>();
-                for (int i = 0;; ++i) {
+        for (int i = 0;; ++i) {
             int x = nums[i];
             int y = target - x;
             if (d.containsKey(y)) {
