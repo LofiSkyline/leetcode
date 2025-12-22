@@ -23,15 +23,17 @@ public class Main {
 
     public static void down(int u) {
         int t = u;
-        if (u * 2 <= size && h[u * 2] < h[t]) {
-            t = u * 2;
-        }
-        if (u * 2 + 1 <= size && h[u * 2 + 1] < h[t]) {
-            t = u * 2 + 1;
-        }
-        if (t != u) {
-            swap(t, u);
-            down(t);
+        while (true) {
+            if (u * 2 <= size && h[u * 2] < h[t]) t = u * 2;
+            if (u * 2 + 1 <= size && h[u * 2 + 1] < h[t]) t = u * 2 + 1;
+            
+            if (u != t) {
+                swap(u, t);
+                u = t; // 继续向下检查
+                // t 保持为当前的 u，准备下一轮比较
+            } else {
+                break; // 也就是 u == t，说明当前节点比孩子都小，不需要再沉了
+            }
         }
     }
 
